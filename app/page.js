@@ -1,69 +1,143 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.js
-            </code>{" "}
-            file.
+    <>
+      <div className="pole"></div>
+      <div className="wrap">
+        <header className="hero">
+          <div className="kicker">
+            Centro de Piracicaba · Travessa Orestes Miglioranza, nº 36
+          </div>
+          <h1 className="display">
+            CORTE NOVO.
+            <br />
+            PRIMEIRA VEZ,
+            <br />
+            <span>METADE DO PREÇO.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="lede">
+            Degradê, barba desenhada e freestyle com o Mineiro. Sua primeira
+            visita sai com 50% de desconto — sem pegadinha.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            className="cta"
+            href="https://wa.me/5519994006445?text=Oi%2C+tudo+bem%3F%0AGostaria+de+agendar+um+hor%C3%A1rio+e+aproveitar+os+50%25+de+desconto+na+primeira+vez."
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
+            Agendar no WhatsApp →
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          <div className="cta-note">Resposta rápida · sem taxa de agendamento</div>
+        </header>
+
+        <section id="oferta">
+          <h2 className="display">A oferta</h2>
+          <div className="offer-card">
+            <div className="offer-big">50%</div>
+            <div className="offer-text">
+              de desconto em <strong>qualquer serviço</strong>, válido só na
+              sua <strong>primeira visita</strong>. Ex: <strong>Cabelo e
+              barba</strong> sai por <strong>R$ 45</strong> (de R$ 90). Você
+              sai já com o próximo horário marcado, se quiser garantir o
+              desconto de retorno.
+            </div>
+          </div>
+        </section>
+
+        <section id="servicos">
+          <h2 className="display">Serviços</h2>
+          <ul className="services">
+            <li>
+              <span>Corte de cabelo</span>
+              <span className="price">R$ 50</span>
+            </li>
+            <li>
+              <span>Barba</span>
+              <span className="price">R$ 50</span>
+            </li>
+            <li>
+              <span>
+                Cabelo e barba
+                <span className="note">combo completo</span>
+              </span>
+              <span className="price">R$ 90</span>
+            </li>
+            <li>
+              <span>Sobrancelha</span>
+              <span className="price">R$ 20</span>
+            </li>
+            <li>
+              <span>Luzes</span>
+              <span className="price">R$ 120</span>
+            </li>
+            <li>
+              <span>Limpeza de pele</span>
+              <span className="price">R$ 40</span>
+            </li>
+            <li>
+              <span>Nariz e orelhas</span>
+              <span className="price">R$ 30</span>
+            </li>
+          </ul>
+        </section>
+
+        <section id="como-funciona">
+          <h2 className="display">Como funciona</h2>
+          <div className="steps">
+            <div className="step">
+              <div className="step-mark">1</div>
+              <p>
+                <strong>Chama no WhatsApp</strong>
+                Manda uma mensagem pelo botão acima, já cai direto na conversa.
+              </p>
+            </div>
+            <div className="step">
+              <div className="step-mark">2</div>
+              <p>
+                <strong>Escolhe o horário</strong>
+                O Mineiro confirma o melhor dia e horário pra você.
+              </p>
+            </div>
+            <div className="step">
+              <div className="step-mark">3</div>
+              <p>
+                <strong>Aparece e aproveita os 50%</strong>
+                Desconto aplicado na hora, sem cadastro complicado.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="local">
+          <h2 className="display">Onde fica</h2>
+          <div className="info-row">
+            <span>Endereço</span>
+            <span>Travessa Orestes Miglioranza, nº 36 — Centro</span>
+          </div>
+          <div className="info-row">
+            <span>Cidade</span>
+            <span>Piracicaba, SP</span>
+          </div>
+          <div className="info-row">
+            <span>Instagram</span>
+            <span>
+              <a
+                href="https://www.instagram.com/mineiro.obarbeiro/"
+                target="_blank"
+                rel="noopener"
+                style={{ color: "var(--accent)" }}
+              >
+                @mineiro.obarbeiro
+              </a>
+            </span>
+          </div>
+        </section>
+
+        <footer>
+          Mineiro, o Barbeiro · Centro, Piracicaba
+          <br />
+          <a href="https://wa.me/5519994006445">wa.me/5519994006445</a>
+        </footer>
+      </div>
+    </>
   );
 }
