@@ -15,5 +15,12 @@ export function proxy(request) {
 }
 
 export const config = {
-  matcher: ["/painel/:path*", "/api/clientes/:path*", "/api/atendimentos/:path*", "/api/conteudo/:path*"],
+  matcher: [
+    "/painel/:path*",
+    "/api/clientes/:path*",
+    "/api/atendimentos/:path*",
+    "/api/conteudo/:path*",
+    "/api/eventos/resumo",
+    "/api/campanhas/:path*",
+  ],
 };

@@ -1,6 +1,9 @@
+import { RastreadorDeVisita, LinkWhatsApp } from "./LandingTracking";
+
 export default function Home() {
   return (
     <>
+      <RastreadorDeVisita />
       <div className="pole"></div>
       <div className="wrap">
         <header className="hero">
@@ -18,14 +21,14 @@ export default function Home() {
             Degradê, barba desenhada e freestyle com o Mineiro. Sua primeira
             visita sai com 50% de desconto — sem pegadinha.
           </p>
-          <a
+          <LinkWhatsApp
             className="cta"
             href="https://wa.me/5519994006445?text=Oi%2C+tudo+bem%3F%0AGostaria+de+agendar+um+hor%C3%A1rio+e+aproveitar+os+50%25+de+desconto+na+primeira+vez."
             target="_blank"
             rel="noopener"
           >
             Agendar no WhatsApp →
-          </a>
+          </LinkWhatsApp>
           <div className="cta-note">Resposta rápida · sem taxa de agendamento</div>
         </header>
 
@@ -146,7 +149,7 @@ export default function Home() {
         <footer>
           Mineiro, o Barbeiro · Centro, Piracicaba
           <br />
-          <a href="https://wa.me/5519994006445">wa.me/5519994006445</a>
+          <LinkWhatsApp href="https://wa.me/5519994006445">wa.me/5519994006445</LinkWhatsApp>
         </footer>
       </div>
     </>

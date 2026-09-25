@@ -31,6 +31,48 @@ create table if not exists conteudo_semana (
   unique(semana, item)
 );
 
+create table if not exists eventos (
+  id uuid primary key default gen_random_uuid(),
+  tipo text not null, -- 'view' (visita na landing) | 'click_whatsapp'
+  utm_source text,
+  utm_medium text,
+  utm_campaign text,
+  created_at timestamptz not null default now()
+);
+create index if not exists eventos_created_at_idx on eventos(created_at);
+create index if not exists eventos_tipo_idx on eventos(tipo);
+
+-- Preencher Agenda: cada "disparo" de uma oferta (uma execução) agrupa os
+-- envios individuais confirmados por Douglas.
+create table if not exists campanhas_execucoes (
+  id uuid primary key default gen_random_uuid(),
+  campanha_nome text not null,
+  campanha_mensagem text not null,
+  data_alvo date not null,
+  qtd_selecionados integer not null default 0,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists campanhas_envios (
+  id uuid primary key default gen_random_uuid(),
+  execucao_id uuid not null references campanhas_execucoes(id) on delete cascade,
+  cliente_id uuid not null references clientes(id) on delete cascade,
+  -- respondeu / agendou podem ser adicionados depois sem quebrar nada;
+  -- de propósito não construímos UI pra isso ainda.
+  created_at timestamptz not null default now()
+);
+create index if not exists campanhas_envios_cliente_id_idx on campanhas_envios(cliente_id);
+create index if not exists campanhas_envios_execucao_id_idx on campanhas_envios(execucao_id);
+
 alter table clientes enable row level security;
 alter table atendimentos enable row level security;
 alter table conteudo_semana enable row level security;
+alter table eventos enable row level security;
+alter table campanhas_execucoes enable row level security;
+alter table campanhas_envios enable row level security;
+
+grant usage on schema public to service_role;
+grant all on all tables in schema public to service_role;
+grant all on all sequences in schema public to service_role;
+alter default privileges in schema public grant all on tables to service_role;
+alter default privileges in schema public grant all on sequences to service_role;

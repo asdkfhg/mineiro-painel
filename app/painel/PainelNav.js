@@ -7,6 +7,7 @@ const ABAS = [
   { href: "/painel", label: "Clientes" },
   { href: "/painel/novo", label: "Novo" },
   { href: "/painel/conteudo", label: "Conteúdo" },
+  { href: "/painel/metricas", label: "Métricas" },
 ];
 
 export function PainelHeader() {
