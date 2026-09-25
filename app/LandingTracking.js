@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { trackMetaContact } from "./MetaPixel";
 
 function utmsDaURL() {
   if (typeof window === "undefined") return {};
@@ -32,7 +33,13 @@ export function RastreadorDeVisita() {
 
 export function LinkWhatsApp({ children, ...props }) {
   return (
-    <a {...props} onClick={() => registrarEvento("click_whatsapp")}>
+    <a
+      {...props}
+      onClick={() => {
+        registrarEvento("click_whatsapp");
+        trackMetaContact();
+      }}
+    >
       {children}
     </a>
   );

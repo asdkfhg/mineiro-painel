@@ -1,5 +1,6 @@
 import { Anton, Work_Sans } from "next/font/google";
 import "./globals.css";
+import { MetaPixel } from "./MetaPixel";
 
 const anton = Anton({
   weight: "400",
@@ -36,7 +37,10 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" className={`${anton.variable} ${workSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <MetaPixel />
+        {children}
+      </body>
     </html>
   );
 }
