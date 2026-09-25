@@ -19,12 +19,18 @@ export const metadata = {
   title: "Mineiro, o Barbeiro — Centro, Piracicaba",
   description:
     "Degradê, barba desenhada e freestyle com o Mineiro. Primeira visita com 50% de desconto.",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Mineiro",
+  },
 };
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: "#14100c",
 };
 
 export default function RootLayout({ children }) {
