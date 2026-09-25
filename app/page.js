@@ -74,7 +74,18 @@ export default function Home() {
               <span className="price">R$ 40</span>
             </li>
             <li>
-              <span>Nariz e orelhas</span>
+              <span>Nariz</span>
+              <span className="price">R$ 25</span>
+            </li>
+            <li>
+              <span>Orelhas</span>
+              <span className="price">R$ 25</span>
+            </li>
+            <li>
+              <span>
+                Nariz e orelhas
+                <span className="note">combo</span>
+              </span>
               <span className="price">R$ 30</span>
             </li>
           </ul>
