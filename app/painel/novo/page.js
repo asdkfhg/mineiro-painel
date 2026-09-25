@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { SERVICOS, ORIGENS } from "@/lib/servicos";
+import { SERVICOS_INDIVIDUAIS, PLANOS } from "@/lib/servicos";
 
 function hojeISO() {
   const hoje = new Date();
@@ -27,8 +27,7 @@ export default function NovoAtendimentoPage() {
   const [nome, setNome] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [data, setData] = useState(hojeISO());
-  const [servico, setServico] = useState(SERVICOS[0]);
-  const [origem, setOrigem] = useState("");
+  const [servico, setServico] = useState(SERVICOS_INDIVIDUAIS[0]);
   const [mensagem, setMensagem] = useState(null);
   const [enviando, setEnviando] = useState(false);
 
@@ -40,7 +39,7 @@ export default function NovoAtendimentoPage() {
       const res = await fetch("/api/atendimentos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome, whatsapp, data, servico, origem }),
+        body: JSON.stringify({ nome, whatsapp, data, servico }),
       });
       const resposta = await res.json();
       if (!res.ok) throw new Error(resposta.erro || "Erro ao salvar.");
@@ -53,8 +52,7 @@ export default function NovoAtendimentoPage() {
       setNome("");
       setWhatsapp("");
       setData(hojeISO());
-      setServico(SERVICOS[0]);
-      setOrigem("");
+      setServico(SERVICOS_INDIVIDUAIS[0]);
     } catch (e) {
       setMensagem({ tipo: "erro", texto: e.message });
     } finally {
@@ -106,23 +104,20 @@ export default function NovoAtendimentoPage() {
         <label style={labelEstilo}>
           Serviço realizado
           <select style={campoEstilo} value={servico} onChange={(e) => setServico(e.target.value)}>
-            {SERVICOS.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label style={labelEstilo}>
-          Como conheceu (opcional)
-          <select style={campoEstilo} value={origem} onChange={(e) => setOrigem(e.target.value)}>
-            <option value="">Não perguntei / não sei</option>
-            {ORIGENS.map((o) => (
-              <option key={o} value={o}>
-                {o}
-              </option>
-            ))}
+            <optgroup label="Serviços individuais">
+              {SERVICOS_INDIVIDUAIS.map((s) => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Planos">
+              {PLANOS.map((s) => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
+            </optgroup>
           </select>
         </label>
 
